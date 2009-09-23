@@ -1,0 +1,17 @@
+h1 {
+  font-family: "Hoefler Text", Georgia, Times, serif;
+  font-weight: normal;
+  margin-top: 2em;
+}
+
+#wrapper {
+  margin-bottom: 200px;
+  overflow: hidden;
+}
+
+#footer {
+  background-color: rgba(0, 0, 0, 0.07);
+  clear: both;
+  overflow: hidden;
+  padding: 20px 0 0 0;
+}
