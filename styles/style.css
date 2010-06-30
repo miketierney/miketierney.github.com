@@ -60,13 +60,27 @@ nav ul li {
   padding: 5px 10px !important;
 }
 
-img {
+.image_wrapper {
   background-color: rgba(0,0,0,.05);
   border: 1px solid rgba(0,0,0,.05);
+  border-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius: 5px; /* FF1+ */
+    -webkit-border-radius: 5px; /* Saf3+, Chrome */
   display: block;
-  padding: 9px;
   margin: 0 auto;
-  max-width: 90%;
+  padding: 9px;
+  text-decoration: none;
+  max-width: 85%;
+  
+}
+
+img {
+  border-radius: 3px; /* Opera 10.5, IE 9 */
+    -moz-border-radius: 3px; /* FF1+ */
+    -webkit-border-radius: 3px; /* Saf3+, Chrome */
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .undecorated {
