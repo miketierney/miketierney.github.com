@@ -1,12 +1,17 @@
-h1 {
+body {
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: "Hoefler Text", Georgia, Times, serif;
   font-weight: normal;
-  margin-top: 2em;
+  text-rendering: optimizeLegibility;
 }
 
 #wrapper {
   margin-bottom: 200px;
   overflow: hidden;
+  padding: 60px 0 0 0;
 }
 
 #footer {
@@ -14,4 +19,64 @@ h1 {
   clear: both;
   overflow: hidden;
   padding: 20px 0 0 0;
+}
+
+a:link, a:visited {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover, a:visited {
+  border-bottom: 1px dotted;
+}
+
+img {
+  background-color: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.05);
+  display: block;
+  padding: 9px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.undecorated {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.undecorated li {
+  margin: 0;
+  padding: 0;
+}
+
+#related {
+  background-color: rgba(0,0,0,.05);
+}
+
+#related .posts, #related h3 {
+  border: 1px solid rgba(0,0,0,.05);
+  padding: 9px;
+}
+
+#related h3 {
+  border-bottom: 0 none;
+  margin-bottom: 0;
+}
+
+#related .posts {
+  border-top: 0 none;
+}
+
+#related .posts li {
+  margin-bottom: 10px;
+}
+
+#related .posts li em {
+  display: block;
+  font-size: 11px;
+}
+
+.date {
+  color: #aaa;
 }

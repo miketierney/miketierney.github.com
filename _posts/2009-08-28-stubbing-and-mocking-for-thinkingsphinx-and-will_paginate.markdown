@@ -4,6 +4,9 @@ layout: post
 title: Stubbing/Mocking for ThinkingSphinx and will_paginate using Flexmock
 wordpress_url: http://panpainter.com/?p=19
 ---
+
+## {{ page.title }}
+
 One of the things that I love about Rails development is the emphasis on Test Driven Design (and BDD, but that's another topic entirely). As someone relatively new to Rails, however, it's occasionally frustrating to attempt to build tests when you don't full know what to expect back (not knowing what to expect as a returned value, being dependent on an outside resource like an API, whatever).
 
 Nothing has been as frustrating for me as learning about mocking/stubbing.  It's one of those things that everyone else just seems to know, but rarely talks about.  Maybe I'm just looking in the wrong places; I'm not sure.  Either way, I was recently working on adding in ThinkingSphinx to a project that I was working on, and I wanted to make sure that my implementation of the plugin was being tested (not, of course, testing ThinkingSphinx itself, because it's already tested in its own right).
@@ -63,4 +66,3 @@ I also like Flexmock because of the readability of the tests &ndash; the method 
 
 Hopefully this will help save someone else time. If there are better ways to solve this problem, I would love to hear about it &ndash; like I mentioned above, mocking/stubbing seems to be one of those topics that no one really discusses at any length, so the more discussion we can have, the better.
 
-<p>Shortlink: <a href="http://panpainter.com/p/6">http://panpainter.com/p/6</a></p>

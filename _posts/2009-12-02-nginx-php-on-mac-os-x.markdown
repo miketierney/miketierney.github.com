@@ -4,6 +4,9 @@ layout: post
 title: nginx + PHP on Mac OS X
 wordpress_url: http://panpainter.com/?p=102
 ---
+
+## {{ page.title }}
+
 I&rsquo;m a big fan of the nginx server (it&rsquo;s lighter weight than Apache, and at this point I&rsquo;m just more familiar with it, so it&rsquo;s my server of choice). When trying to get it to play nicely with PHP, however &hellip; well, it leaves something to be desired.
 
 But, with some persistence (and [quite](http://henrik.nyh.se/2008/02/php-in-nginx-on-os-x) a [bit](http://kovyrin.net/2006/05/30/nginx-php-fastcgi-howto/) of [help](http://sunblu.sh/2008/04/installing-nginx-and-php-with-fastcgi-on-mac-os-x-105-leopard)), I got it up and running on my development machine. The one thing that I wasn't ever able to find an answer for (at least, an answer that worked) was to have my system start up FastCGI on launch. I really dislike having to start these things by hand and feel that any performance trade-off (always having this run in the background) is well worth it for the productivity boost.
@@ -49,4 +52,3 @@ After adding this to the `/Library/LaunchDaemons` directory (or symlinking it in
 
 Now, this probably is not the most elegant solution, and I&rsquo;m relying on the MacPorts-depedent `daemondo`, but it works. If you know of a better way to do this, I&rsquo;d be happy to hear it.
 
-Shortlink: [http://panpainter.com/p/10](http://panpainter.com/p/10)

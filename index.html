@@ -1,27 +1,14 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>panpainter.github.com</title>
-  <link rel="stylesheet" href="styles/reset.css" type="text/css" media="screen" charset="utf-8" />
-  <link rel="stylesheet" href="styles/960.css" type="text/css" media="screen" charset="utf-8" />
-  <link rel="stylesheet" href="styles/text.css" type="text/css" media="screen" charset="utf-8" />
-  <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" charset="utf-8" />
-</head>
-<body>
-  <div id="wrapper" class="container_16">
-    <div class="grid_16">
-      <h1>Panpainter.com: The Archives</h1>
+---
+layout: default
+title: Archive Index
+---
 
-      {{ content }}
+<h1 class="grid_16">Panpainter.com: The Archives</h1>
 
-    </div> <!-- /.grid_16 -->
-  </div>
-  
-  <div id="footer">
-    <div class="container_16">
-      <p class="grid_16">Powered by <a href="http://pages.github.com">Github Pages</a>.</p>
-    </div>
-  </div>
-</body>
-</html>
+<ul class="posts undecorated grid_10">
+  {% for post in site.posts %}
+    <li><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a> <em class="date">{{ post.date | date_to_string }}</em></li>
+  {% endfor %}
+</ul>
+
+<p class="grid_6">This is a collection of articles from <a href="http://panpainter.com">panpainter.com</a>, which is currently undergoing a little bit of reconstructive surgery. Since I didn't want to leave anyone just&hellip; hanging, I'm archiving all of my old posts here. <a href="mailto:info@panpainter.com">Let me know</a> if you have any feedback.</p>

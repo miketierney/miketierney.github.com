@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- meta content -->
+    <meta charset="UTF-8">
+    <title>Stubbing/Mocking for ThinkingSphinx and will_paginate using Flexmock &bull; pages.panpainter.com</title>
+
+    <!-- 960 grid -->
+    <link rel="stylesheet" href="/styles/reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/960.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/text.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Typekit support -->
+    <script type="text/javascript" src="http://use.typekit.com/bkl2lhg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+
+    <div id="wrapper" class="container_16">
+      <div id="post" class="grid_10 prefix_2">
+<h2>Stubbing/Mocking for ThinkingSphinx and will_paginate using Flexmock</h2>
+
+<p>One of the things that I love about Rails development is the emphasis on Test Driven Design (and BDD, but that's another topic entirely). As someone relatively new to Rails, however, it's occasionally frustrating to attempt to build tests when you don't full know what to expect back (not knowing what to expect as a returned value, being dependent on an outside resource like an API, whatever).</p>
+
+<p>Nothing has been as frustrating for me as learning about mocking/stubbing.  It's one of those things that everyone else just seems to know, but rarely talks about.  Maybe I'm just looking in the wrong places; I'm not sure.  Either way, I was recently working on adding in ThinkingSphinx to a project that I was working on, and I wanted to make sure that my implementation of the plugin was being tested (not, of course, testing ThinkingSphinx itself, because it's already tested in its own right).</p>
+
+<p>Of course, anything that runs through the plugin is eventually going to want to hit the search daemon, which is a dependency that our test suite shouldn't have.  This is easy enough to overcome with a quick mock (if you know the right magic incantation, that is).</p>
+
+<p>After some searching, I settled on Flexmock as the framework of choice, if for no more reason than the fact that it has better documentation than some of the others I've found.  Here's the test that I wrote that just made sure that search would occur given a few different situations. (Note that this is done using <code>Test/Unit</code>.)</p>
+
+<p>First I had to make sure that will_paginate would cooperate with me, so I created a <code>view_helper.rb</code> file in <code>/test/mocks/test/</code> to set the <code>total_pages_for_collection</code> method to just return "1" (because we really don't care how many pages there are in the collection, and running anything against a view without this being set throws an error):</p>
+
+<pre><code># /test/mocks/view_helpers
+
+require 'will_paginate/core_ext'
+
+module WillPaginate
+  module ViewHelpers
+    def self.total_pages_for_collection(collection) #:nodoc:
+      return 1
+    end
+  end
+end
+</code></pre>
+
+<p>The only slightly odd thing here is the <code>#:nodoc:</code> statement; we just don't want to have this method show up in any of the documentation (probably not really necessary, but I feel better having it in place). Now that will_paginate is getting pre-empted, we can test the <code>SearchController</code>:</p>
+
+<pre><code># /test/functional/search_controller_test.rb
+
+require 'test_helper'
+require 'flexmock/test_unit'
+require 'mocks/view_helpers'
+
+class SearchControllerTest &lt; ActionController::TestCase
+
+  test "should search events" do
+
+    flexmock(Location).should_receive(:search).once.with_any_args.and_return([locations(:one)])
+    flexmock(Event).should_receive(:search).once.with_any_args.and_return([events(:one)])
+
+    get :index, :q =&gt; 'hello world'
+    assert_response :success
+
+    assert_match '&lt;p&gt;There is 1 result for "hello world"&lt;/p&gt;', @response.body
+end
+
+test "get with no query paramter searches everything" do
+
+    flexmock(Event).should_receive(:search).once.with_any_args.and_return([events(:one)])
+
+    get :index
+    assert_response :success
+    assert_match 'There is 1 result for ""&lt;/p&gt;', @response.body
+  end
+end
+</code></pre>
+
+<p>I've got two tests here, one that tests that search works if a query is passed to the search daemon, and one that tests what happens if no query is actually passed (the expected function for the latter test is that all Events would be displayed).</p>
+
+<p>I also like Flexmock because of the readability of the tests &ndash; the method names are quite literally what they seem to be. The really important thing to note though, and what took me forever to find, was the <code>.once.with_any_args.and_return(#...)</code> phrasing. That's what's really key here &ndash; I was getting all manner of weird errors back until I set up my stub this way. What I'm doing is short-circuiting the search function &ndash; I'm telling my tests that the search parameters and responses are unimportant, all that we really want is to make sure that the search method is getting invoked.</p>
+
+<p>Hopefully this will help save someone else time. If there are better ways to solve this problem, I would love to hear about it &ndash; like I mentioned above, mocking/stubbing seems to be one of those topics that no one really discusses at any length, so the more discussion we can have, the better.</p>
+
+</div>
+
+<div id="related" class="grid_4">
+  <h3>Related Posts</h3>
+  <ul class="posts undecorated">
+    
+      <li><a href="/2010/06/25/keeping-your-sass-organized.html"><strong>Keeping your SASS Organized</strong></a> <em class="date">25 Jun 2010</em></li>
+    
+      <li><a href="/2010/03/17/javascript-tips-extending-a-jquery-object.html"><strong>Javascript Tips: Extending a jQuery Object</strong></a> <em class="date">17 Mar 2010</em></li>
+    
+      <li><a href="/2010/02/23/i-think-this-means-its-finally-time-for-a-new-moleskine.html"><strong>I think this means it's finally time for a new moleskine</strong></a> <em class="date">23 Feb 2010</em></li>
+    
+  </ul>
+</div>
+    </div>
+
+    <div id="footer">
+      <div class="container_16">
+        <p class="powered_by grid_16">Powered by <a href="http://pages.github.com">Github Pages</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

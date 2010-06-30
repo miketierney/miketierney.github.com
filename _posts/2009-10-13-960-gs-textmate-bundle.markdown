@@ -5,6 +5,9 @@ title: 960.gs TextMate Bundle
 excerpt: A bundle for TextMate designed to make creating HTML documents that work with the 960.gs CSS framework much easier.
 wordpress_url: http://panpainter.com/?p=91
 ---
+
+## {{ page.title }}
+
 As part of the work I do every day, I use the [960.gs](http://960.gs) CSS framework, which means I spend a good portion of my day typing things like "grid_4" and "container_16" and "alpha" or "omega" a LOT.
 
 ### This is stupid. ###
@@ -15,4 +18,3 @@ If you want to download it, you can grab it from [here](http://panpainter.com/do
 
 Also, if there are any problems that you run in to while using it (or if you have a request), please [let me know](http://github.com/panpainter/960_gs.tmbundle/issues)! I'll happily update the bundle.
 
-Permalink: [http://panpainter.com/p/9](http://panpainter.com/p/9)

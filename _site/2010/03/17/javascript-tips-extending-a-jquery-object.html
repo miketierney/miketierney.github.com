@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- meta content -->
+    <meta charset="UTF-8">
+    <title>Javascript Tips: Extending a jQuery Object &bull; pages.panpainter.com</title>
+
+    <!-- 960 grid -->
+    <link rel="stylesheet" href="/styles/reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/960.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/text.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Typekit support -->
+    <script type="text/javascript" src="http://use.typekit.com/bkl2lhg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+
+    <div id="wrapper" class="container_16">
+      <div id="post" class="grid_10 prefix_2">
+<h2>Javascript Tips: Extending a jQuery Object</h2>
+
+<p>Ever find a jQuery plugin that does <em>almost</em> everything you need it to do, but you don't want to hack the plugin itself (thus throwing yourself in to <a href="http://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>)? Well, good news! With jQuery, you have a utility to easily add functionality to an existing object without overwriting the existing code (also known as <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a>).</p>
+
+<p>Note that this can be a bit risky, even though it won't override methods within the original object. Consider yourself warned.</p>
+
+<h3>A real life example</h3>
+
+<p>The most practical example of this can be demonstrated with a plugin. I was recently using the <a href="http://onehackoranother.com/projects/jquery/boxy/">boxy</a> plugin for a project. However, of all the functions that it has, it lacks the ability to call something like <code>Boxy.close();</code> and have it unload the object from the DOM. This seems like something that should be present in a modal dialog framework (and indeed, it does include a <code>.hide()</code> function, but you have to specify a DOM object inside of a Boxy instance for it to target, which is more cumbersome than I felt it should be). So, I decided I would add one:</p>
+
+<pre><code>// in a file called 'jquery.boxy.mod.js'
+close: function(target) {
+  target = target || '.boxy-inner'; // The boxy-inner class is a safe default target, because it's in boxy objects when the script constructs them
+  Boxy.get(jQuery(target)).hideAndUnload();
+}
+</code></pre>
+
+<p>Now I can call <code>Boxy.close()</code> anywhere in my code (in my case, I'm using it in <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/PrototypeHelper/JavaScriptGenerator/GeneratorMethods.html">RJS files</a>, but you could call it in an <code>onclick</code> or from an observer if you wanted). For added resilience, I set up the function so that it can pull in an optional 'target' object; Boxy enables the ability to create instances from inline code, so the default classes might not be present, and I wanted to be able to close those Boxy instances too.</p>
+
+<h3>So how does it work?</h3>
+
+<p>To set this up properly, you'll want to make sure that you have your base files &ndash; in this case, jquery and jquery.boxy &ndash; called first in your HTML:</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- insert normal HTML header-y goodness here --&gt;
+    &lt;!-- jQuery, minified, from the Google AJAX Libraries API: http://code.google.com/apis/ajaxlibs/documentation/#jquery --&gt;
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt; 
+    &lt;!-- Boxy, from the origin Github repo --&gt;
+    &lt;script type="text/javascript" src="http://github.com/jaz303/boxy/raw/master/src/javascripts/jquery.boxy.js"&gt;&lt;/script&gt;
+    &lt;!-- Boxy modifications --&gt;
+    &lt;script type="text/javascript" src="scripts/jquery.boxy.mod.js"&gt;&lt;/script&gt;
+    &lt;!-- ... --&gt;
+</code></pre>
+
+<p>Then in the <code>scripts/jquery.boxy.mod.js</code> file:</p>
+
+<pre><code>jQuery.fn.extend(Boxy, {
+  close: function(target) {
+    target = target || '.boxy-inner';
+    Boxy.get(jQuery(target)).hideAndUnload();
+  }
+});
+</code></pre>
+
+<p>The key here is the <code>jQuery.fn.extend()</code> function &ndash; this adds methods to an existing jQuery object. You can <a href="http://docs.jquery.com/Core/jQuery.fn.extend">read more about it</a> on the <a href="http://docs.jquery.com">jQuery documentation site</a>.</p>
+
+<p>And that's all there is to it! Simple, right?</p>
+
+</div>
+
+<div id="related" class="grid_4">
+  <h3>Related Posts</h3>
+  <ul class="posts undecorated">
+    
+      <li><a href="/2010/06/25/keeping-your-sass-organized.html"><strong>Keeping your SASS Organized</strong></a> <em class="date">25 Jun 2010</em></li>
+    
+      <li><a href="/2010/02/23/i-think-this-means-its-finally-time-for-a-new-moleskine.html"><strong>I think this means it's finally time for a new moleskine</strong></a> <em class="date">23 Feb 2010</em></li>
+    
+      <li><a href="/2010/01/16/leave-my-scrollbars-alone.html"><strong>Leave My Scrollbars Alone</strong></a> <em class="date">16 Jan 2010</em></li>
+    
+  </ul>
+</div>
+    </div>
+
+    <div id="footer">
+      <div class="container_16">
+        <p class="powered_by grid_16">Powered by <a href="http://pages.github.com">Github Pages</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

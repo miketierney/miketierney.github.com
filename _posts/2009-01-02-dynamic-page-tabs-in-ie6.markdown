@@ -1,11 +1,11 @@
---- 
+---
 wordpress_id: 14
 layout: post
 title: Dynamic Page Tabs in IE6
-excerpt: While working to ensure that the Onehub experience was of the best possible quality for our Internet Explorer 6 users, I ran in to a unique challenge: we have page tabs that need to be completely flexible. I had no guarantee that they would be a certain width, height, or even how many tabs there would be.
-
 wordpress_url: http://panpainter.com/?p=14
 ---
+
+## {{ page.title }}
 
 _*Note:* This is a re-posting/summary of a post that was written and released on the [Onehub blog](http://onehub.com/blog "Onehub Blog"); I'm just posting up a snippet so that you can see what it's about. If you want to read the full text, please visit: [http://www.onehub.com/past/2009/1/2/dynamic_page_tabs_in_ie6/](http://www.onehub.com/past/2009/1/2/dynamic_page_tabs_in_ie6 "Dynamic Page Tabs in IE6")_
 

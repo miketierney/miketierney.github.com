@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- meta content -->
+    <meta charset="UTF-8">
+    <title>Git Demote &bull; pages.panpainter.com</title>
+
+    <!-- 960 grid -->
+    <link rel="stylesheet" href="/styles/reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/960.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/styles/text.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <!-- Typekit support -->
+    <script type="text/javascript" src="http://use.typekit.com/bkl2lhg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+
+    <div id="wrapper" class="container_16">
+      <div id="post" class="grid_10 prefix_2">
+<h2>Git Demote</h2>
+
+<p>I'm a big fan of Trevor Squires' <a href="http://hoth.entp.com/2008/11/10/improving-my-git-workflow">Git Promote script</a>, but one thing that's bothered me about it since I started using it is that it tends to clutter up my <code>.git/config</code> file. So, I made a counter-script for it that I'm calling, appropriately, "git demote"</p>
+
+<pre name="code" class="bash">
+    #!/bin/sh
+    #
+    # Counter-script to Travis Squires' git-promote script
+    # (http://hoth.entp.com/2008/11/10/improving-my-git-workflow)
+    # Removes a 'promoted' branch from the git config file.
+    
+    curr_branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+    
+    git config --remove-section "branch.${curr_branch}"
+</pre>
+
+
+<p>To install it, simply create a file called <code>$HOME/bin/git-demote</code> (assuming you have <code>$HOME/bin</code> in your <code>PATH</code>, otherwise place it somehwere that does exist in your <code>PATH</code>), then run the following from the terminal:</p>
+
+<pre><code>chmod 755 $HOME/bin/git-demote
+</code></pre>
+
+<p>Now, when you're done with a branch, you can clean up your <code>.git/config</code> file by running:</p>
+
+<pre><code>git checkout topic-branch
+git demote
+</code></pre>
+
+<p>And you're good to go.</p>
+
+<p>You can fork the <a href="http://gist.github.com/177306">Gist</a>, if you don't want to type all that.</p>
+
+</div>
+
+<div id="related" class="grid_4">
+  <h3>Related Posts</h3>
+  <ul class="posts undecorated">
+    
+      <li><a href="/2010/06/25/keeping-your-sass-organized.html"><strong>Keeping your SASS Organized</strong></a> <em class="date">25 Jun 2010</em></li>
+    
+      <li><a href="/2010/03/17/javascript-tips-extending-a-jquery-object.html"><strong>Javascript Tips: Extending a jQuery Object</strong></a> <em class="date">17 Mar 2010</em></li>
+    
+      <li><a href="/2010/02/23/i-think-this-means-its-finally-time-for-a-new-moleskine.html"><strong>I think this means it's finally time for a new moleskine</strong></a> <em class="date">23 Feb 2010</em></li>
+    
+  </ul>
+</div>
+    </div>
+
+    <div id="footer">
+      <div class="container_16">
+        <p class="powered_by grid_16">Powered by <a href="http://pages.github.com">Github Pages</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -4,6 +4,9 @@ layout: post
 title: Git Demote
 wordpress_url: http://panpainter.com/?p=62
 ---
+
+## {{ page.title }}
+
 I'm a big fan of Trevor Squires' <a href="http://hoth.entp.com/2008/11/10/improving-my-git-workflow">Git Promote script</a>, but one thing that's bothered me about it since I started using it is that it tends to clutter up my `.git/config` file. So, I made a counter-script for it that I'm calling, appropriately, "git demote"
 
 <pre name="code" class="bash">
@@ -31,4 +34,3 @@ And you're good to go.
 
 You can fork the <a href="http://gist.github.com/177306">Gist</a>, if you don't want to type all that.
 
-Shortlink: <a href="http://panpainter.com/p/7">http://panpainter.com/p/7</a>

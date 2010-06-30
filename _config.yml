@@ -1,3 +1,4 @@
 auto: true
 paginate: 5
 permalink: date
+markdown: rdiscount

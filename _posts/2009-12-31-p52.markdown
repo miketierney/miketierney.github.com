@@ -4,6 +4,9 @@ layout: post
 title: P52
 wordpress_url: http://panpainter.com/?p=108
 ---
+
+## {{ page.title }}
+
 One of the things I've had on my to-do list for quite some time now is to spend more time writing (just look at my archives and you'll see what I mean - I think I've been averaging one post per month, and that's been an active couple of months for me!).
 
 It's not like I don't have anything to say, but I get so stuck inside my own head that I never end up actually writing anything, and unfortunately that just makes it look like I have nothing to actually say. Which is bad.

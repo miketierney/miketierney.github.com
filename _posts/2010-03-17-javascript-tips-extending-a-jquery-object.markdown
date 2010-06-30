@@ -4,6 +4,9 @@ layout: post
 title: "Javascript Tips: Extending a jQuery Object"
 wordpress_url: http://panpainter.com/?p=130
 ---
+
+## {{ page.title }}
+
 Ever find a jQuery plugin that does *almost* everything you need it to do, but you don't want to hack the plugin itself (thus throwing yourself in to [dependency hell](http://en.wikipedia.org/wiki/Dependency_hell))? Well, good news! With jQuery, you have a utility to easily add functionality to an existing object without overwriting the existing code (also known as [monkey patching](http://en.wikipedia.org/wiki/Monkey_patch)).
 
 Note that this can be a bit risky, even though it won't override methods within the original object. Consider yourself warned.
@@ -46,5 +49,3 @@ Then in the `scripts/jquery.boxy.mod.js` file:
 The key here is the `jQuery.fn.extend()` function &ndash; this adds methods to an existing jQuery object. You can [read more about it](http://docs.jquery.com/Core/jQuery.fn.extend) on the [jQuery documentation site](http://docs.jquery.com).
 
 And that's all there is to it! Simple, right?
-
-Short link: [http://panpainter.com/p/13](http://panpainter.com/p/13)

@@ -5,6 +5,9 @@ title: Keeping your SASS Organized
 excerpt: On why the directory that holds your source files doesn't need to be anywhere near your generated files.
 wordpress_url: http://panpainter.com/?p=137
 ---
+
+## {{ page.title }}
+
 I've recently started working full-time on a <a href="http://sass-lang.com">SASS</a> (more precisely, <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html">SCSS</a>) driven front-end for the product that I'm helping to build at my day job. Ignoring the really fine-grained details, this is a fairly complicated UI, and I'm trying to maintain a fairly modular approach (one might say <a href="http://oocss.org/">Object Oriented</a>) to my stylesheets, creating re-usable components.
 
 ### The Parts Serve the Whole
@@ -67,5 +70,3 @@ So, to get this working as expected (since SASS makes some assumptions on where 
 ### That's It
 
 I hope this helps save someone else some time and prevents confusion.
-
-Short link: <a href="http://panpainter.com/p/14">http://panpainter.com/p/14</a>

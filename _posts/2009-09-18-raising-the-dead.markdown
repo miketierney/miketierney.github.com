@@ -4,6 +4,9 @@ layout: post
 title: Raising the Dead
 wordpress_url: http://panpainter.com/?p=84
 ---
+
+## {{ page.title }}
+
 If you run in to the situation where you (or someone you're working with) has deleted files that shouldn't have been deleted (like a stylesheet that gets used in only one place within a very large project, say), you can recover it easily (assuming you're using Git, of course). Simply find when the file was deleted (this is just one way to do it, of course):
 
     git log -- path/to/file
@@ -18,4 +21,3 @@ Then commit, and you're good to go!
 
 Note that you *can* solve this problem using git rebase, but that'll flatten your tree. This adds a new commit at the head of your tree, and should be less likely to cause any conflicts or weird history issues.
 
-Permalink: [http://panpainter.com/p/8](http://panpainter.com/p/8)
