@@ -19,8 +19,13 @@
   </head>
   <body>
 
-    <div id="wrapper" class="container_16">
-      <div id="post" class="grid_10 prefix_2">
+    <section id="wrapper" class="container_16">
+      <nav class="grid_4">
+        <ul class="undecorated">
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+      <article id="post" class="grid_10 prefix_2">
 <h2>Raising the Dead</h2>
 
 <p>If you run in to the situation where you (or someone you're working with) has deleted files that shouldn't have been deleted (like a stylesheet that gets used in only one place within a very large project, say), you can recover it easily (assuming you're using Git, of course). Simply find when the file was deleted (this is just one way to do it, of course):</p>
@@ -39,9 +44,9 @@
 
 <p>Note that you <em>can</em> solve this problem using git rebase, but that'll flatten your tree. This adds a new commit at the head of your tree, and should be less likely to cause any conflicts or weird history issues.</p>
 
-</div>
+</article>
 
-<div id="related" class="grid_4">
+<section id="related" class="grid_4">
   <h3>Related Posts</h3>
   <ul class="posts undecorated">
     
@@ -52,13 +57,13 @@
       <li><a href="/2010/02/23/i-think-this-means-its-finally-time-for-a-new-moleskine.html"><strong>I think this means it's finally time for a new moleskine</strong></a> <em class="date">23 Feb 2010</em></li>
     
   </ul>
-</div>
-    </div>
+</section>
+    </section>
 
-    <div id="footer">
+    <footer id="footer">
       <div class="container_16">
         <p class="powered_by grid_16">Powered by <a href="http://pages.github.com">Github Pages</a>.</p>
       </div>
-    </div>
+    </footer>
   </body>
 </html>

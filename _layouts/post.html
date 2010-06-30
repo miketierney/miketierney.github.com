@@ -2,15 +2,15 @@
 layout: default
 ---
 
-<div id="post" class="grid_10 prefix_2">
+<article id="post" class="grid_10 prefix_2">
 {{ content }}
-</div>
+</article>
 
-<div id="related" class="grid_4">
+<section id="related" class="grid_4">
   <h3>Related Posts</h3>
   <ul class="posts undecorated">
     {% for post in site.related_posts limit:3 %}
       <li><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a> <em class="date">{{ post.date | date_to_string }}</em></li>
     {% endfor %}
   </ul>
-</div>
+</section>

@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 60px 0 0 0;
 }
 
+.container_16 {
+  position: relative;
+}
+
 #footer {
   background-color: rgba(0, 0, 0, 0.07);
   clear: both;
@@ -30,6 +34,32 @@ a:hover, a:visited {
   border-bottom: 1px dotted;
 }
 
+nav.grid_4 {
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.05);
+  border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+  position: absolute;
+    top: 0px;
+    right: 0;
+  float: none;
+}
+
+nav ul {
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+
+nav ul li {
+  display: block;
+  float: left;
+  padding: 5px 10px !important;
+}
+
 img {
   background-color: rgba(0,0,0,.05);
   border: 1px solid rgba(0,0,0,.05);
@@ -41,7 +71,6 @@ img {
 
 .undecorated {
   list-style-type: none;
-  margin: 0;
   padding: 0;
 }
 
@@ -52,6 +81,9 @@ img {
 
 #related {
   background-color: rgba(0,0,0,.05);
+  border-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius: 5px; /* FF1+ */
+    -webkit-border-radius: 5px; /* Saf3+, Chrome */
 }
 
 #related .posts, #related h3 {
@@ -60,12 +92,25 @@ img {
 }
 
 #related h3 {
+  border-top-left-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius-topleft: 5px; /* FF1+ */
+    -webkit-border-top-left-radius: 5px; /* Saf3+, Chrome */
+  border-top-right-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius-topright: 5px; /* FF1+ */
+    -webkit-border-top-right-radius: 5px; /* Saf3+, Chrome */
   border-bottom: 0 none;
   margin-bottom: 0;
 }
 
 #related .posts {
+  border-bottom-left-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius-bottomleft: 5px; /* FF1+ */
+    -webkit-border-bottom-left-radius: 5px; /* Saf3+, Chrome */
+  border-bottom-right-radius: 5px; /* Opera 10.5, IE 9 */
+    -moz-border-radius-bottomright: 5px; /* FF1+ */
+    -webkit-border-bottom-right-radius: 5px; /* Saf3+, Chrome */
   border-top: 0 none;
+  margin-bottom: 0;
 }
 
 #related .posts li {
