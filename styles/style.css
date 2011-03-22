@@ -9,6 +9,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
+  background-color: #fafafa;
+  max-width: 580px; /* the width of the main column */
+  overflow: auto;
   font-family: Courier, monospace;
 }
 
