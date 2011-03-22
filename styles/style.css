@@ -8,10 +8,13 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
 }
 
-code {
+pre {
   background-color: #fafafa;
   max-width: 580px; /* the width of the main column */
   overflow: auto;
+}
+
+code, pre {
   font-family: Courier, monospace;
 }
 
