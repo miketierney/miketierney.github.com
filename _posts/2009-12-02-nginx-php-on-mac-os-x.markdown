@@ -13,6 +13,8 @@ But, with some persistence (and [quite](http://henrik.nyh.se/2008/02/php-in-ngin
 
 [This article](http://sunblu.sh/2008/04/installing-nginx-and-php-with-fastcgi-on-mac-os-x-105-leopard) addresses using a plist that runs on load (utilizing `launchd`), but as the author notes, it works inconsistently. After doing some digging of my own (by reading the nginx plist that ships with my MacPorts install of the server), I came up with the following:
 
+<pre class="code" name="xml">
+  <code>
 #### com.panpainter.php-fastcgi.plist
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
@@ -43,12 +45,18 @@ But, with some persistence (and [quite](http://henrik.nyh.se/2008/02/php-in-ngin
       <key>RunAtLoad</key><false/>
     </dict>
     </plist>
+  </code>
+</pre>
 
 ([Get the code here](http://gist.github.com/247418))
 
 After adding this to the `/Library/LaunchDaemons` directory (or symlinking it in to there, if you&rsquo;d rather it live somewhere else), don't forget to run the following to ensure that it&rsquo;ll run on load:
 
-    sudo launchctl load -w /Library/LaunchDaemons/com.panpainter.php-fastcgi.plist
+<pre name="code" name="bash">
+  <code>
+    $ sudo launchctl load -w /Library/LaunchDaemons/com.panpainter.php-fastcgi.plist
+  </code>
+</pre>
 
 Now, this probably is not the most elegant solution, and I&rsquo;m relying on the MacPorts-depedent `daemondo`, but it works. If you know of a better way to do this, I&rsquo;d be happy to hear it.
 

@@ -18,6 +18,8 @@ One of the things I'm leveraging is SASS's inherent ability to pull all of your 
 
 I decided that I wanted to keep my style-producing files all in one location, so that it's something of a one-stop-shop when it comes time to do editing. Since I'm working on a Rails application, I utilized the app_name/public/stylesheets/ directory for this purpose. My directory structure looked something like:
 
+<pre name="code" class="shell">
+  <code>
     public/
     |
     |-- stylesheets/
@@ -31,6 +33,8 @@ I decided that I wanted to keep my style-producing files all in one location, so
                 |-- forms.scss
                 |-- grid.scss
                 `-- text.scss
+  </code>
+</pre>
 
 Add a few more directories in, a few more top-level files, and you can see that **very** quickly that crucial sass directory gets lost (especially since its name starts with a 's'). It gets even worse when you try to handle SCM ignore rules, since the logical thing to do would be to ignore the whole of the stylesheets directory, but you want the sass directory to be tracked. Doable, but complicated and easily messed up (especially if you're using an *ahem* older system.
 

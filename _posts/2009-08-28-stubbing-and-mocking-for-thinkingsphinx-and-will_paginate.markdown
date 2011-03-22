@@ -17,6 +17,8 @@ After some searching, I settled on Flexmock as the framework of choice, if for n
 
 First I had to make sure that will_paginate would cooperate with me, so I created a `view_helper.rb` file in `/test/mocks/test/` to set the `total_pages_for_collection` method to just return "1" (because we really don't care how many pages there are in the collection, and running anything against a view without this being set throws an error):
 
+<pre name="code" class="ruby">
+  <code>
     # /test/mocks/view_helpers
     
     require 'will_paginate/core_ext'
@@ -28,9 +30,13 @@ First I had to make sure that will_paginate would cooperate with me, so I create
         end
       end
     end
+  </code>
+</pre>
 
 The only slightly odd thing here is the `#:nodoc:` statement; we just don't want to have this method show up in any of the documentation (probably not really necessary, but I feel better having it in place). Now that will_paginate is getting pre-empted, we can test the `SearchController`:
 
+<pre name="code" class="ruby">
+  <code>
     # /test/functional/search_controller_test.rb
     
     require 'test_helper'
@@ -59,6 +65,8 @@ The only slightly odd thing here is the `#:nodoc:` statement; we just don't want
         assert_match 'There is 1 result for ""</p>', @response.body
       end
     end
+  </code>
+</pre>
 
 I've got two tests here, one that tests that search works if a query is passed to the search daemon, and one that tests what happens if no query is actually passed (the expected function for the latter test is that all Events would be displayed).
 
