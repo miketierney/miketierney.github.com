@@ -32,16 +32,16 @@ To set this up properly, you'll want to make sure that you have your base files 
 
 <pre name="code" class="html">
   <code>
-    <html>
-      <head>
-        <!-- insert normal HTML header-y goodness here -->
-        <!-- jQuery, minified, from the Google AJAX Libraries API: http://code.google.com/apis/ajaxlibs/documentation/#jquery -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
-        <!-- Boxy, from the origin Github repo -->
-        <script type="text/javascript" src="http://github.com/jaz303/boxy/raw/master/src/javascripts/jquery.boxy.js"></script>
-        <!-- Boxy modifications -->
-        <script type="text/javascript" src="scripts/jquery.boxy.mod.js"></script>
-        <!-- ... -->
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;!-- insert normal HTML header-y goodness here --&gt;
+        &lt;!-- jQuery, minified, from the Google AJAX Libraries API: http://code.google.com/apis/ajaxlibs/documentation/#jquery --&gt;
+        &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt; 
+        &lt;!-- Boxy, from the origin Github repo --&gt;
+        &lt;script type="text/javascript" src="http://github.com/jaz303/boxy/raw/master/src/javascripts/jquery.boxy.js"&gt;&lt;/script&gt;
+        &lt;!-- Boxy modifications --&gt;
+        &lt;script type="text/javascript" src="scripts/jquery.boxy.mod.js"&gt;&lt;/script&gt;
+        &lt;!-- ... --&gt;
   </code>
 </pre>
 

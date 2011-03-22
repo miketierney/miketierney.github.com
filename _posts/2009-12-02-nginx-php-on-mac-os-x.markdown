@@ -16,35 +16,35 @@ But, with some persistence (and [quite](http://henrik.nyh.se/2008/02/php-in-ngin
 <pre class="code" name="xml">
   <code>
 #### com.panpainter.php-fastcgi.plist
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>com.panpainter.phpfcgi</string>
-      <key>EnvironmentVariables</key>
-      <dict>
-        <key>PHP_FCGI_CHILDREN</key>
-        <string>2</string>
-        <key>PHP_FCGI_MAX_REQUESTS</key>
-        <string>1000</string>
-      </dict>
-      <key>ProgramArguments</key>
-      <array>
-        <string>/opt/local/bin/daemondo</string>
-        <string>--label=php-cgi</string>
-        <string>--start-cmd</string>
-        <string>/opt/local/bin/php-cgi</string>
-        <string>-q</string>
-        <string>-b</string>
-        <string>127.0.0.1:8888</string>
-      </array>
-      <key>OnDemand</key><false/>
-      <key>Debug</key><false/>
-      <key>RunAtLoad</key><false/>
-    </dict>
-    </plist>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+    &lt;plist version="1.0"&gt;
+    &lt;dict&gt;
+      &lt;key&gt;Label&lt;/key&gt;
+      &lt;string&gt;com.panpainter.phpfcgi&lt;/string&gt;
+      &lt;key&gt;EnvironmentVariables&lt;/key&gt;
+      &lt;dict&gt;
+        &lt;key&gt;PHP_FCGI_CHILDREN&lt;/key&gt;
+        &lt;string&gt;2&lt;/string&gt;
+        &lt;key&gt;PHP_FCGI_MAX_REQUESTS&lt;/key&gt;
+        &lt;string&gt;1000&lt;/string&gt;
+      &lt;/dict&gt;
+      &lt;key&gt;ProgramArguments&lt;/key&gt;
+      &lt;array&gt;
+        &lt;string&gt;/opt/local/bin/daemondo&lt;/string&gt;
+        &lt;string&gt;--label=php-cgi&lt;/string&gt;
+        &lt;string&gt;--start-cmd&lt;/string&gt;
+        &lt;string&gt;/opt/local/bin/php-cgi&lt;/string&gt;
+        &lt;string&gt;-q&lt;/string&gt;
+        &lt;string&gt;-b&lt;/string&gt;
+        &lt;string&gt;127.0.0.1:8888&lt;/string&gt;
+      &lt;/array&gt;
+      &lt;key&gt;OnDemand&lt;/key&gt;&lt;false/&gt;
+      &lt;key&gt;Debug&lt;/key&gt;&lt;false/&gt;
+      &lt;key&gt;RunAtLoad&lt;/key&gt;&lt;false/&gt;
+    &lt;/dict&gt;
+    &lt;/plist&gt;
   </code>
 </pre>
 

@@ -62,6 +62,8 @@ This is for anyone wanting to do something similar, and is using Rails (if neith
 
 So, to get this working as expected (since SASS makes some assumptions on where the various files live/will be generated), you'll want to modify your configuration like so:
 
+<pre name="code" class="ruby">
+  <code>
     # rename 'sass' to whatever the directory that
     # your sass/scss files live in is called
     Sass::Plugin.options[:template_location] = './app/sass'
@@ -70,6 +72,8 @@ So, to get this working as expected (since SASS makes some assumptions on where 
     # in public/stylesheets you'll want to change this, too.
     # If not, then you don't need this
     Sass::Plugin.options[:css_location] = './public/stylesheets/generated_files'
+  </code>
+</pre>
 
 ### That's It
 
